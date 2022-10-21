@@ -1,0 +1,130 @@
+@use "colors";
+@use "fonts";
+
+.list-item-container {
+  margin-top: 40px;
+  margin-left: 20%;
+  padding-bottom: 100px;
+}
+
+.title {
+  h1 {
+    color: colors.$retailer-yellow;
+    text-decoration: underline #707070 1px;
+    text-underline-offset: 4px;
+    text-transform: uppercase;
+    @include fonts.zeitung-bold;
+    font-size: 30px;
+  }
+}
+
+.list-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+
+  .add-user-name {
+    width: 66%;
+  }
+
+  .form-row-one,
+  .form-row-two,
+  .form-row-three,
+  .form-row-four {
+    display: flex;
+    flex-direction: row;
+    column-gap: 40px;
+
+    p {
+      width: 220px;
+      @include fonts.zeitung;
+      font-size: 14px;
+      margin-top: 0;
+    }
+  }
+
+  .form-row-lg {
+    width: 480px;
+  }
+
+  p {
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    width: 100%;
+    margin: 0.2rem 0;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #ebebeb;
+    font-size: 14px;
+    border-bottom: 0.5px solid transparent;
+    @include fonts.outfit-light;
+    letter-spacing: 0.2px;
+
+    &:focus {
+      border-bottom: 0.5px solid colors.$retailer-yellow;
+      outline: none;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 2px;
+    background-color: #ebebeb;
+    font-size: 14px;
+    border-bottom: 0.5px solid transparent;
+    letter-spacing: 0.2px;
+    @include fonts.outfit-light;
+
+    &:focus {
+      border-bottom: 0.5px solid colors.$retailer-yellow;
+      outline: none;
+    }
+  }
+
+  button {
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 20%;
+    background-color: colors.$retailer-blue;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.4s;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+//css for Modal window
+
+.close {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.check-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+
+  h4 {
+    @include fonts.zeitung-semi-bold;
+    color: colors.$retailer-grey;
+    font-size: 23px;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 5px;
+    @include fonts.outfit-light;
+    color: colors.$retailer-grey;
+  }
+}

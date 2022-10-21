@@ -1,0 +1,112 @@
+@use "colors";
+@use "fonts";
+
+.edit-listing {
+  width: 80%;
+  margin: auto;
+
+  .edit-listing-container {
+    padding-bottom: 60px;
+    h1.title {
+      color: colors.$retailer-yellow;
+      text-decoration: underline #707070 1px;
+      text-underline-offset: 4px;
+      text-transform: uppercase;
+      @include fonts.zeitung-bold;
+      font-size: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 630px;
+
+      div {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 25px;
+
+        p {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+
+          input {
+            width: 260px;
+            padding: 0.6rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #ebebeb;
+            font-size: 14px;
+            border-left: 2px solid transparent;
+            border-right: 2px solid transparent;
+            @include fonts.outfit-light;
+            letter-spacing: 0.2px;
+
+            &:focus {
+              border-left: 2px solid colors.$retailer-blue;
+              border-right: 2px solid colors.$retailer-blue;
+              outline: none;
+            }
+          }
+
+          textarea {
+            width: 560px;
+            height: 90px;
+            overflow: scroll;
+            padding: 0.6rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #ebebeb;
+            font-size: 14px;
+            border-left: 2px solid transparent;
+            border-right: 2px solid transparent;
+            letter-spacing: 0.2px;
+            @include fonts.outfit-light;
+            resize: none;
+
+            &:focus {
+              border-left: 2px solid colors.$retailer-blue;
+              border-right: 2px solid colors.$retailer-blue;
+              outline: none;
+            }
+          }
+        }
+      }
+
+      .edit-listing-btns {
+        margin-top: 20px;
+
+        .cancel-btn {
+          color: colors.$retailer-grey;
+          font-weight: bold;
+          font-size: 1rem;
+          width: 20%;
+          background-color: colors.$retailer-yellow-alt;
+          border: none;
+          border-radius: 5px;
+          padding: 0.8rem;
+          text-decoration: none;
+          text-align: center;
+          transition: 0.4s;
+          box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .submit-btn {
+          color: white;
+          font-weight: bold;
+          font-size: 1rem;
+          width: 20%;
+          background-color: colors.$retailer-blue;
+          border: none;
+          border-radius: 5px;
+          padding: 0.8rem;
+          text-decoration: none;
+          text-align: center;
+          transition: 0.4s;
+          box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+  }
+}

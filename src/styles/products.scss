@@ -1,0 +1,662 @@
+@use "colors";
+@use "fonts";
+
+.products-heading {
+  width: 96%;
+  height: 90vh;
+  margin: auto;
+  display: flex;
+  gap: 100px;
+
+  .heading-content {
+    width: 40%;
+    padding-left: 0px;
+  }
+
+  img {
+    height: 90%;
+    display: block;
+    visibility: visible;
+  }
+
+  @media (max-width: 1130px) {
+    img {
+      display: none;
+      visibility: hidden;
+    }
+
+    .heading-content {
+      padding-left: 100px;
+    }
+  }
+
+  h1 {
+    @include fonts.zeitung-bold;
+    color: colors.$retailer-yellow;
+    font-size: 60px;
+    text-transform: uppercase;
+    line-height: 48px;
+    margin-bottom: 0;
+    margin-top: 180px;
+    padding-left: 0;
+
+    span {
+      color: colors.$retailer-grey;
+      font-size: 39px;
+    }
+  }
+
+  p {
+    width: 80%;
+    @include fonts.outfit-light;
+    color: colors.$retailer-grey;
+    font-size: 21px;
+    margin-top: 25px;
+    line-height: 27px;
+    margin-bottom: 100px;
+  }
+
+  a {
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    background-color: colors.$retailer-blue;
+    transition-property: color;
+    transition-duration: 0.3s;
+    color: white;
+    @include fonts.zeitung;
+    padding: 10px 45px;
+    border-radius: 5px;
+    box-shadow: colors.$retailer-shadow;
+    text-align: center;
+  }
+
+  a:before {
+    content: "";
+    position: absolute;
+    z-index: -5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    background-color: colors.$retailer-yellow;
+    transform: scaleX(0);
+    transform-origin: 50%;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    color: colors.$retailer-grey;
+  }
+
+  a:hover,
+  .header-btn-photo:focus,
+  .header-btn-photo:active {
+    color: colors.$retailer-grey;
+  }
+  a:hover:before,
+  a:focus:before,
+  a:active:before {
+    transform: scaleX(1);
+  }
+}
+
+.products-container {
+  z-index: 10;
+  display: block;
+  width: 730px;
+  margin: auto;
+  margin-top: 0px;
+
+  h1 {
+    color: colors.$retailer-yellow;
+    text-decoration: underline #707070 1px;
+    text-underline-offset: 4px;
+    text-transform: uppercase;
+    @include fonts.zeitung-bold;
+    font-size: 30px;
+  }
+}
+
+// Listed item card styling
+
+// --- Products ---
+.item-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.card-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  color: colors.$retailer-grey;
+  border-radius: 10px;
+}
+
+.item-thumbnail {
+  height: 100%;
+  width: 43%;
+  object-fit: fill;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  height: 75%;
+  margin: auto;
+  width: 46%;
+  padding: 8px 6px;
+
+  .item-title {
+    @include fonts.zeitung-bold;
+    font-size: 20px;
+  }
+
+  .item-detail {
+    @include fonts.outfit-reg;
+    font-size: 14px;
+    padding-top: 3px;
+  }
+
+  .item-feature {
+    @include fonts.outfit-light;
+    font-size: 12px;
+    padding-top: 20px;
+    padding-bottom: 14px;
+  }
+
+  hr {
+    border-top: 0.3px solid #d6d6d6;
+    background: none;
+    border-bottom: none;
+  }
+
+  .item-price {
+    @include fonts.zeitung-semi-bold;
+    padding-top: 14px;
+    font-size: 17px;
+  }
+}
+
+//   Item modal styling
+
+.modal-bg-right {
+  position: absolute;
+  height: 23%;
+  top: 0;
+  right: 0;
+}
+
+// --- Product Modal
+
+.close-button {
+  background: white;
+  border: none;
+  color: colors.$retailer-blue;
+  position: absolute;
+  @include fonts.zeitung-semi-bold;
+  font-size: 14px;
+  padding: 0;
+  border-radius: 5px;
+  top: 10px;
+  right: 10px;
+  height: 35px;
+  width: 100px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+//   Modal Tiles
+
+.modal-img-tile {
+  background-color: transparent;
+}
+
+.modal-info-tile {
+  //   background-color: lightpink;
+  padding: 30px;
+  color: colors.$retailer-grey;
+
+  .modal-title {
+    @include fonts.zeitung-bold;
+    font-size: 22px;
+    padding-bottom: 5px;
+  }
+
+  .modal-details {
+    @include fonts.outfit-reg;
+    font-size: 17px;
+    padding-bottom: 30px;
+  }
+
+  .modal-features {
+    @include fonts.outfit-light;
+    font-size: 14px;
+    padding-bottom: 20px;
+  }
+
+  hr {
+    border-top: 0.3px solid #d6d6d6;
+    background: none;
+    border-bottom: none;
+  }
+
+  .modal-price {
+    padding-top: 15px;
+    padding-bottom: 40px;
+    color: colors.$retailer-grey;
+    font-size: 22px;
+    @include fonts.zeitung-semi-bold;
+  }
+}
+
+.modal-description-tile {
+  //   background-color: lightblue;
+  padding: 22px;
+}
+
+.modal-message-tile {
+  //   background-color: lightgreen;
+  padding: 22px;
+}
+
+.modal-heading {
+  @include fonts.zeitung-semi-bold;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: colors.$retailer-grey;
+  padding: 0;
+}
+
+.modal-description {
+  p {
+    margin-top: 0;
+    padding-top: 10px;
+    @include fonts.outfit-light;
+    color: colors.$retailer-grey;
+    font-size: 15px;
+    line-height: 20px;
+    overflow: scroll;
+    max-height: 240px;
+  }
+}
+
+.modal-thumbnail {
+  width: 98%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.modal-btns {
+  width: 90%;
+  display: flex;
+  gap: 20px;
+
+  .modal-contact-btn {
+    color: colors.$retailer-grey;
+    background-color: colors.$retailer-yellow-alt;
+  }
+
+  .modal-buy-btn {
+    color: white;
+    background-color: colors.$retailer-blue;
+  }
+
+  .modal-contact-btn,
+  .modal-buy-btn {
+    font-size: 15px;
+    border-radius: 5px;
+    @include fonts.zeitung-semi-bold;
+    width: 40%;
+    padding: 8px;
+    border: none;
+  }
+}
+
+.spacing {
+  width: 100%;
+  height: 150px;
+  display: block;
+  color: transparent;
+}
+
+// My listings styling
+
+.my-listings-container {
+  width: 730px;
+  margin-left: 15%;
+  margin-top: 100px;
+}
+
+.item-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.card-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  color: colors.$retailer-grey;
+  border-radius: 10px;
+}
+
+.item-thumbnail {
+  height: 100%;
+  width: 43%;
+  object-fit: fill;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  height: 75%;
+  margin: auto;
+  width: 46%;
+  padding: 8px 6px;
+
+  .item-title {
+    @include fonts.zeitung-bold;
+    font-size: 20px;
+  }
+
+  .item-detail {
+    @include fonts.outfit-reg;
+    font-size: 14px;
+    padding-top: 3px;
+  }
+
+  .item-feature {
+    @include fonts.outfit-light;
+    font-size: 12px;
+    padding-top: 20px;
+    padding-bottom: 14px;
+  }
+
+  hr {
+    border-top: 0.3px solid #d6d6d6;
+    background: none;
+    border-bottom: none;
+  }
+
+  .item-price {
+    @include fonts.zeitung-semi-bold;
+    padding-top: 14px;
+    font-size: 17px;
+  }
+}
+
+//   Item modal styling
+
+.modal-background {
+  position: absolute;
+  height: 70%;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+
+// --- Product Modal
+
+.cancel-button {
+  background: colors.$retailer-yellow-alt;
+  border: none;
+  color: colors.$retailer-grey;
+  @include fonts.zeitung-semi-bold;
+  font-size: 14px;
+  padding: 0;
+  border-radius: 5px;
+  top: 10px;
+  right: 10px;
+  height: 35px;
+  width: 100px;
+  z-index: 10;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.save-button {
+  background: colors.$retailer-blue;
+  border: none;
+  color: white;
+  @include fonts.zeitung-semi-bold;
+  font-size: 14px;
+  padding: 0;
+  border-radius: 5px;
+  top: 10px;
+  right: 10px;
+  height: 35px;
+  width: 100px;
+  z-index: 10;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.modal-edit-listing-btns {
+  position: absolute;
+  bottom: 30px;
+  left: 35px;
+  display: flex;
+  gap: 15px;
+}
+
+.modal-edit-listing {
+  z-index: 10;
+  padding: 10px;
+  margin-top: -20px;
+
+  h1 {
+    @include fonts.zeitung-semi-bold;
+    color: colors.$retailer-yellow;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  h4 {
+    @include fonts.outfit-light;
+    color: colors.$retailer-grey;
+    font-size: 17px;
+    margin-top: 0;
+  }
+
+  form {
+    width: 650px;
+    display: flex;
+    column-gap: 45px;
+    row-gap: 13px;
+    flex-wrap: wrap;
+
+    p {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      color: colors.$retailer-grey;
+      @include fonts.outfit-reg;
+      font-size: 15px;
+
+      input {
+        margin-top: 2px;
+        width: 280px;
+        background-color: #ebebeb;
+        border: none;
+        padding: 7px;
+        @include fonts.outfit-light;
+        border-radius: 5px;
+      }
+
+      textarea {
+        width: 100%;
+        background-color: #ebebeb;
+        border: none;
+      }
+    }
+  }
+}
+
+//   Modal Tiles
+
+.modal-img-tile {
+  background-color: transparent;
+}
+
+.modal-info-tile {
+  //   background-color: lightpink;
+  padding: 30px;
+  color: colors.$retailer-grey;
+
+  .modal-title {
+    @include fonts.zeitung-bold;
+    font-size: 22px;
+    padding-bottom: 5px;
+  }
+
+  .modal-details {
+    @include fonts.outfit-reg;
+    font-size: 17px;
+    padding-bottom: 30px;
+  }
+
+  .modal-features {
+    @include fonts.outfit-light;
+    font-size: 14px;
+    padding-bottom: 20px;
+  }
+
+  hr {
+    border-top: 0.3px solid #d6d6d6;
+    background: none;
+    border-bottom: none;
+  }
+
+  .modal-price {
+    padding-top: 15px;
+    padding-bottom: 40px;
+    color: colors.$retailer-grey;
+    font-size: 22px;
+    @include fonts.zeitung-semi-bold;
+  }
+}
+
+.modal-description-tile {
+  //   background-color: lightblue;
+  padding: 22px;
+}
+
+.modal-message-tile {
+  //   background-color: lightgreen;
+  padding: 22px;
+}
+
+.modal-heading {
+  @include fonts.zeitung-semi-bold;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: colors.$retailer-grey;
+  padding: 0;
+}
+
+.modal-description {
+  p {
+    margin-top: 0;
+    padding-top: 10px;
+    @include fonts.outfit-light;
+    color: colors.$retailer-grey;
+    font-size: 15px;
+    line-height: 20px;
+    overflow: scroll;
+    max-height: 240px;
+  }
+}
+
+.modal-thumbnail {
+  width: 98%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.modal-btns {
+  width: 90%;
+  display: flex;
+  gap: 20px;
+
+  .modal-contact-btn {
+    color: colors.$retailer-grey;
+    background-color: colors.$retailer-yellow-alt;
+  }
+
+  .modal-buy-btn {
+    color: white;
+    background-color: colors.$retailer-blue;
+  }
+
+  .modal-contact-btn,
+  .modal-buy-btn {
+    font-size: 15px;
+    border-radius: 5px;
+    @include fonts.zeitung-semi-bold;
+    width: 40%;
+    padding: 8px;
+    border: none;
+  }
+}
+
+.user-listing-btn {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+
+  .user-btn-edit {
+    padding: 8px 30px;
+    border: none;
+    background-color: colors.$retailer-blue;
+    color: white;
+    font-size: 14px;
+    @include fonts.zeitung-semi-bold;
+    border-radius: 5px;
+  }
+
+  .user-btn-delete {
+    padding: 8px 30px;
+    border: none;
+    @include fonts.zeitung-semi-bold;
+    background-color: #d35b5b;
+    color: white;
+    border-radius: 5px;
+  }
+}

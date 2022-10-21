@@ -1,0 +1,114 @@
+@use "colors";
+@use "fonts";
+
+.home-container {
+  width: 85vw;
+  max-width: 1100px;
+  height: 68vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  display: flex;
+  // background-color: lightblue;
+  position: relative;
+
+  img {
+    position: absolute;
+    width: 50%;
+    visibility: visible;
+    display: block;
+    right: 0;
+    bottom: 0;
+  }
+
+  @media (max-width: 900px) {
+    img {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  .home-text {
+    min-width: 480px;
+  }
+
+  h1 {
+    @include fonts.zeitung-bold;
+    color: colors.$retailer-yellow;
+    font-size: 60px;
+    text-transform: uppercase;
+    line-height: 48px;
+    margin-bottom: 0;
+
+    span {
+      color: colors.$retailer-grey;
+      font-size: 39px;
+    }
+  }
+
+  p {
+    width: 40%;
+    @include fonts.outfit-light;
+    color: colors.$retailer-grey;
+    font-size: 21px;
+    margin-top: 25px;
+    line-height: 27px;
+    margin-bottom: 100px;
+  }
+
+  a {
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    background-color: colors.$retailer-blue;
+    transition-property: color;
+    transition-duration: 0.3s;
+    color: white;
+    @include fonts.zeitung;
+    padding: 10px 45px;
+    border-radius: 5px;
+    box-shadow: colors.$retailer-shadow;
+    text-align: center;
+  }
+
+  a:before {
+    content: "";
+    position: absolute;
+    z-index: -5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    background-color: colors.$retailer-yellow-alt;
+    transform: scaleX(0);
+    transform-origin: 50%;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    color: colors.$retailer-grey;
+  }
+
+  a:hover,
+  .header-btn-photo:focus,
+  .header-btn-photo:active {
+    color: colors.$retailer-grey;
+  }
+  a:hover:before,
+  a:focus:before,
+  a:active:before {
+    transform: scaleX(1);
+  }
+}
+
+h3 {
+  position: absolute;
+  bottom: 5px;
+  right: 30px;
+  @include fonts.outfit-light;
+  color: #c4c4c4;
+  font-size: 15px;
+}

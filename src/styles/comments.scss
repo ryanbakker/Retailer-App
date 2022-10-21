@@ -1,0 +1,93 @@
+@use "colors";
+@use "fonts";
+
+.no-form {
+  width: 100%;
+  display: flex;
+}
+
+.comments-box {
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  height: 260px;
+  overflow: scroll;
+  margin-top: 10px;
+
+  .post-comment {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      width: 85%;
+      height: 20px;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid colors.$retailer-blue-alt;
+      @include fonts.outfit-light;
+      margin-left: 5px;
+
+      &:focus {
+        border: 1px solid colors.$retailer-yellow-alt;
+        outline: none;
+      }
+    }
+
+    input.usernameComment {
+      width: 70px;
+    }
+
+    button {
+      background-color: colors.$retailer-blue-alt;
+      color: white;
+      border: none;
+      margin-left: 5px;
+      height: 30px;
+      width: 30px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      font-size: 16px;
+    }
+  }
+
+  .tester-one {
+    // background-color: lavender;
+    padding: 10px;
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow: scroll !important;
+    height: 190px;
+  }
+
+  .tester-two {
+    background-color: white;
+    box-shadow: colors.$retailer-shadow-lite;
+    width: 100%;
+    margin: auto;
+    min-height: 35px;
+    display: flex;
+    flex-direction: column;
+    color: colors.$retailer-grey;
+    border-radius: 5px;
+    padding: 7px;
+
+    h4 {
+      margin: 0;
+      padding: 0;
+      font-size: 11px;
+      @include fonts.outfit-light;
+    }
+
+    h5 {
+      margin: 0;
+      padding: 0;
+      font-size: 13px;
+      @include fonts.zeitung;
+    }
+  }
+}
